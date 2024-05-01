@@ -1,27 +1,28 @@
-<div>
-    <form class="container" (ngSubmit)="onSearch()" #form="ngForm">
+<form class="container" (ngSubmit)="onSearch()" #form="ngForm">
+    <br>
+    <div class="row">
+        <div class="col-4">
+            <input class="form-control" [(ngModel)]="utente.id" required="true" type="text" name="id"
+                placeholder="Inserire ID da cercare per la modifica">
+        </div>
         <br>
-        <div>
-            <h3>Ricerca Utente per ID</h3>
+        <div class="col-auto">
+            <button class="btn btn-primary" type="submit">Cerca</button>
         </div>
-        <div class="row">
-            <div class="col-3">
-                <input class="form-control" [(ngModel)]="utente.id" required="true" type="text" name="id"
-                    placeholder="Inserire ID da cercare">
-            </div>
-            <br>
-            <div class="col-auto">
-                <button class="btn btn-primary" type="submit">Cerca</button>
-            </div>
-        </div>
-    </form>
+    </div>
+</form>
+<div>
     <!--Form per registrare un prodotto-->
     <br>
     <br>
     <form class="container" (ngSubmit)="onSubmit()" #form="ngForm">
-        <div>
-            <h2>Form Utente</h2>
+        <div class="card">
+        <div class="card-header">
+            <h2 *ngIf="submitCalled==true">Form Di Registrazione Dipendenti</h2>
+            <h2 *ngIf="submitCalled==false">Form Di Modifica Dipendenti</h2>
+            
         </div>
+        <div class="card-body">
         <div class="row">
             <div class="col-auto">
                 <label for="nome">Nome:</label>
@@ -35,11 +36,6 @@
                     placeholder="Inserire il Cognome" type="text" name="cognome" required>
             </div>
 
-        </div>
-
-        <br>
-
-        <div class="row">
             <div class="col-auto">
                 <label for="dataNascita">Data di Nascita:</label>
                 <input class="form-control" [(ngModel)]="utente.dataNascita" (click)="resetMessage()"
@@ -62,14 +58,10 @@
                 <input class="form-control" [(ngModel)]="utente.cf" (click)="resetMessage()"
                     placeholder="Inserire il CF" type="text" name="cf" required>
             </div>
-        </div>
-        <br>
 
-        <div class="row">
-
-            <div class="col-6">
+            <div class="col-auto">
                 <label for="ruolo">Ruolo Aziendale :</label>
-                <select class="form-control" class="form-control col-md-4" [(ngModel)]="utente.ruolo"
+                <select class="form-control" [(ngModel)]="utente.ruolo"
                     placeholder="Inserire il Ruolo Aziendale" name="ruolo" required>
                     <option value="Seleziona" selected>Seleziona
                     </option>
@@ -79,12 +71,10 @@
                 </select>
 
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-6">
+        
+            <div class="col-auto">
                 <label for="ruolo">Settore Aziendale :</label>
-                <select class="form-control col-md-4" [(ngModel)]="utente.settore"
+                <select class="form-control" [(ngModel)]="utente.settore"
                     placeholder="Inserire il Settore Aziendale" name="settore" required>
                     <option value="Seleziona" selected>Seleziona
                     </option>
@@ -148,7 +138,8 @@
                 <button class="btn btn-primary" routerLink="/statistiche" type="button">Visualizza statistiche</button>
             </div>
         </div>
-
+        </div>
+        </div>
     </form>
     <br>
 

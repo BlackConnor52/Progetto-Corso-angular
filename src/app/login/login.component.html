@@ -1,16 +1,18 @@
-<div>
-    <form class="container" (ngSubmit)="onFormSubmit()" #form="ngForm">
-        <div>
-            <h2>Login Utente</h2>
+<div class="">
+    <form class="container contenitore" (ngSubmit)="onFormSubmit()" #form="ngForm">
+        <div class="card" style="width: 50%; ">
+        <div class="card-header">
+            <h2>Login Amministratore</h2>
         </div>
         <div class="row-auto">
-            <div class="col-3">
-                <label for="email">username:</label>
+            <div class="col-auto">
+                <br>
+                <label for="email">Username:</label>
                 <input class="form-control" [(ngModel)]="account.username" placeholder="Inserire username" type="text"
                     name="username" required>
             </div>
             <br>
-            <div class="col-3">
+            <div class="col-auto">
                 <label for="password">Password:</label>
                 <input class="form-control" [(ngModel)]="account.password" placeholder="Inserire la Password"
                     type="password" name="password" required>
@@ -19,7 +21,8 @@
             <div class="col-auto">
                 <button class="btn btn-success" type="submit">Login</button>
             </div>
+            <br>
         </div>
-       
+    </div>
     </form>
 </div>

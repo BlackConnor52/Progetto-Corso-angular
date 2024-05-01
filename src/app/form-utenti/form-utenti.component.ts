@@ -14,7 +14,7 @@ export class FormUtentiComponent implements OnInit {
   settori: Settore[] = []
   utente: Utente = new Utente()
   message!: string
-
+  submitCalled=true
   constructor(private utenteService: UtenteCrud) { }
 
   ngOnInit(): void {
@@ -49,6 +49,7 @@ export class FormUtentiComponent implements OnInit {
 
   onSubmit(): void {
     this.validation()
+    
   }
 
   getUtente(id: number): any {
@@ -59,7 +60,7 @@ export class FormUtentiComponent implements OnInit {
 
   onSearch(): void {
     this.utente = this.getUtente(this.utente.id)
-
+    this.submitCalled = false;
   }
 
   resetMessage(): void {
@@ -129,6 +130,7 @@ export class FormUtentiComponent implements OnInit {
           this.addUtente(this.utente)
           this.utente = new Utente();  //svuota i campi del form e crea nello stesso tempo una nuova istanza
         }
+        this.submitCalled=true
       }
     ).catch(
       (error) =>{

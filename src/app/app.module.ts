@@ -6,6 +6,10 @@ import { FormUtentiComponent } from './form-utenti/form-utenti.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -13,6 +17,7 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     FormUtentiComponent,
     LoginComponent,
+    HomeComponent
     
 
 
@@ -21,8 +26,9 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule, MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

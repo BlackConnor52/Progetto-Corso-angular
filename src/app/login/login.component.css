@@ -1,0 +1,6 @@
+.contenitore {
+    margin-top: 10%;
+    display: flex;
+  justify-content: center; /* Allinea orizzontalmente al centro */
+  align-items: center;
+}
