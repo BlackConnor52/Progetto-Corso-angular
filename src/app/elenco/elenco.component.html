@@ -1,0 +1,7 @@
+<h3>Elenco Persone</h3>
+<table>
+<tr *ngFor="let persona of crud.persone">
+    <td>{{persona.id}}</td>{{persona.nome}}<td></td><td>{{persona.cognome}}</td>
+</tr>
+</table>
+<a routerLink="/home">Torna al menu</a>

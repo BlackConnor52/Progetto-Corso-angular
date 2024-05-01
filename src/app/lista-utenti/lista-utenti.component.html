@@ -1,0 +1,58 @@
+<body>
+
+
+    <h3 class="text-center my-4">Tabella degli Utenti</h3>
+    <div class="container">
+        <div>
+            <div class="col-3">
+                <button routerLink="" type="button" class="btn btn-primary">Aggiungi Utente</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="table-responsive">
+        <h3 *ngIf="utenti.length==0">Torna alla pagina precedente!</h3>
+        <table class="table">
+            <thead class="bg-white">
+                <th class="text-dark">Id</th>
+                <th class="text-dark">Nome</th>
+                <th class="text-dark">Cognome</th>
+                <th class="text-dark">Data Di Nascita</th>
+                <th class="text-dark">Luogo Di Nascita</th>
+                <th class="text-dark">CF</th>
+                <th class="text-dark">Ruolo Aziendale</th>
+                <th class="text-dark">Settore Aziendale</th>
+                <th class="text-dark">Stipendio</th>
+                <th class="text-dark">Username</th>
+                <th class="text-dark">Email</th>
+                <th class="text-dark">Password</th>
+                <th class="text-dark"></th>
+            </thead>
+            <tbody class="bg-dark">
+                <tr *ngFor="let utente of utenti">
+                    <td class="text-white">{{utente.id}}</td>
+                    <td class="text-white">{{utente.nome| myCustom}}</td>
+                    <td class="text-white">{{utente.cognome| myCustom}}</td>
+                    <td class="text-white">{{utente.dataNascita| date:'dd/MM/YYYY'}}</td>
+                    <td class="text-white">{{utente.luogoNascita| myCustom}}</td>
+                    <td class="text-white">{{utente.cf}}</td>
+                    <td class="text-white">{{utente.ruolo}}</td>
+                    <td class="text-white">{{utente.settore}}</td>
+                    <td class="text-white">{{utente.stipendio}}</td>
+                    <td class="text-white">{{utente.username}}</td>
+                    <td class="text-white">{{utente.email}}</td>
+                    <td class="text-white">{{utente.password}}</td>
+                    <td *ngIf="ruoli_aziendali=='programmatore';" class="text-warning"><button
+                            class="btn btn-outline-warning px-5" (click)="deleteUtenti(utente.id)">Rimuovi</button></td>
+                    <td *ngIf="ruoli_aziendali!='programmatore';" class="text-warning">Accesso negato!</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-light" (click)="getUtenti(1)">First page</button>
+        <button class="btn btn-light" (click)="getUtenti(pagina-1)">Previous</button>
+        <button class="btn btn-light">Pagina {{pagina}}</button>
+        <button class="btn btn-light" (click)="getUtenti(pagina+1)">Next</button>
+        <button class="btn btn-light" (click)="getUtenti(nPagine)">Last page</button>
+    </div>
+
+</body>

@@ -1,0 +1,158 @@
+<div>
+    <form class="container" (ngSubmit)="onSearch()" #form="ngForm">
+        <br>
+        <div>
+            <h3>Ricerca Utente per ID</h3>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <input class="form-control" [(ngModel)]="utente.id" required="true" type="text" name="id"
+                    placeholder="Inserire ID da cercare">
+            </div>
+            <br>
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Cerca</button>
+            </div>
+        </div>
+    </form>
+    <!--Form per registrare un prodotto-->
+    <br>
+    <br>
+    <form class="container" (ngSubmit)="onSubmit()" #form="ngForm">
+        <div>
+            <h2>Form Utente</h2>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <label for="nome">Nome:</label>
+                <input class="form-control" [(ngModel)]="utente.nome" (click)="resetMessage()"
+                    placeholder="Inserire il Nome" type="text" name="nome" required>
+            </div>
+
+            <div class="col-auto">
+                <label for="cognome">Cognome:</label>
+                <input class="form-control" [(ngModel)]="utente.cognome" (click)="resetMessage()"
+                    placeholder="Inserire il Cognome" type="text" name="cognome" required>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-auto">
+                <label for="dataNascita">Data di Nascita:</label>
+                <input class="form-control" [(ngModel)]="utente.dataNascita" (click)="resetMessage()"
+                    placeholder="Inserire la Data Di Nascita:" type="date" name="dataNascita" required>
+            </div>
+
+            <div class="col-auto">
+                <label for="luogoNascita">Luogo Di Nascita:</label>
+                <input class="form-control" [(ngModel)]="utente.luogoNascita" (click)="resetMessage()"
+                    placeholder="Inserire il Luogo Di Nascita " type="text" name="luogoNascita" required>
+            </div>
+
+        </div>
+
+        <br>
+        <div class="row">
+
+            <div class="col-auto">
+                <label for="cf">CF :</label>
+                <input class="form-control" [(ngModel)]="utente.cf" (click)="resetMessage()"
+                    placeholder="Inserire il CF" type="text" name="cf" required>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+
+            <div class="col-6">
+                <label for="ruolo">Ruolo Aziendale :</label>
+                <select class="form-control" class="form-control col-md-4" [(ngModel)]="utente.ruolo"
+                    placeholder="Inserire il Ruolo Aziendale" name="ruolo" required>
+                    <option value="Seleziona" selected>Seleziona
+                    </option>
+                    <option *ngFor="let r of ruoli" [value]="r.ruolo">
+                        {{r.ruolo}}
+                    </option>
+                </select>
+
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <label for="ruolo">Settore Aziendale :</label>
+                <select class="form-control col-md-4" [(ngModel)]="utente.settore"
+                    placeholder="Inserire il Settore Aziendale" name="settore" required>
+                    <option value="Seleziona" selected>Seleziona
+                    </option>
+                    <option *ngFor="let s of settori" [value]="s.settore">
+                        {{s.settore}}
+                    </option>
+                </select>
+
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-auto">
+                <label for="stipendio">Stipendio:</label>
+                <input class="form-control" [(ngModel)]="utente.stipendio" (click)="resetMessage()"
+                    placeholder="Inserire lo Stipendio" type="text" name="stipendio" required>
+            </div>
+
+            <br>
+
+
+            <div class="col-auto">
+                <label for="username">Username:</label>
+                <input class="form-control" [(ngModel)]="utente.username" (click)="resetMessage()"
+                    placeholder="Inserire Username" type="text" name="username" required>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-auto">
+                <label for="email">Email:</label>
+                <input class="form-control" [(ngModel)]="utente.email" (click)="resetMessage()"
+                    placeholder="Inserire Email" type="text" name="email" required>
+            </div>
+
+            <br>
+
+            <div class="col-auto">
+                <label for="password">Password:</label>
+                <input class="form-control" [(ngModel)]="utente.password" (click)="resetMessage()"
+                    placeholder="Inserire la Password" type="text" name="password" required>
+            </div>
+        </div>
+
+        <br>
+
+        <!--Pulsantiera del form-->
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-success" type="submit">Registra</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-primary" routerLink="/lista" type="button">Visualizza Elenco</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-primary" routerLink="/statistiche" type="button">Visualizza statistiche</button>
+            </div>
+        </div>
+
+    </form>
+    <br>
+
+    <div class="container">
+        <p style="color: red;">{{message}}</p>
+    </div>
+</div>
